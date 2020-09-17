@@ -7,7 +7,11 @@ class Author
     end
 
     def posts
-        Post.all
+        Post.all.collect do |post|
+            if post.author == self
+                post
+            end
+        end
     end
 
     def add_post(new_post)

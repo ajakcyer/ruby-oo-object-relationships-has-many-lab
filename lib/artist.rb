@@ -7,7 +7,12 @@ class Artist
     end
 
     def songs
-        Song.all
+        Song.all.collect do |song|
+            if song.artist == self
+                song
+            end
+        end
+
         # Song.all.collect do |songs|
         #     songs
         # end
